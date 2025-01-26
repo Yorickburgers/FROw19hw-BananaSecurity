@@ -9,7 +9,7 @@ function NavBar() {
     const {isAuthenticated, userEmail, logoutFunction } = useContext(AuthContext);
     const handleLogout = () => {
         logoutFunction();
-        navigate("/signin");
+        navigate("/");
     }
 
   return (
@@ -41,7 +41,7 @@ function NavBar() {
         {isAuthenticated
             &&
             <>
-            {userEmail ? <p>{userEmail}</p> : null}
+            {userEmail?.email ? <p>{userEmail.email}</p> : null}
                 <button
                     type="button"
                     onClick={handleLogout}
